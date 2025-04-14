@@ -2,7 +2,7 @@ name: Daily AI News Email
 
 on:
   schedule:
-    - cron: "0 13 * * *"  # Every day at 9am EST (13 UTC)
+    - cron: "0 12 * * *"  # Every day at 8am EST (12 UTC)
   workflow_dispatch:
 
 jobs:
