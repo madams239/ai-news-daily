@@ -1,0 +1,38 @@
+name: Daily AI News Email
+
+on:
+  schedule:
+    - cron: "0 13 * * *"  # Every day at 9am EST (13 UTC)
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run script
+        run: python daily_ai_news.py
+
+      - name: Send Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "🧠 Your Daily AI News Digest"
+          to: your@email.com
+          from: "AI Bot <your@email.com>"
+          body: |
+            Here's your AI news digest for today!
+            See attached.
+          attachments: output.txt
