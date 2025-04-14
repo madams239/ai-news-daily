@@ -33,7 +33,5 @@ jobs:
           subject: "🧠 Your Daily AI News Digest"
           to: thedataguy239@gmail.com
           from: "AI Bot <thedataguy239@gmail.com>"
-          body: |
-            Here's your AI news digest for today!
-            See attached.
+          html_body: file://email_body.html
           attachments: output.txt
