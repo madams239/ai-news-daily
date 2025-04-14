@@ -30,8 +30,8 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "🧠 Your Daily AI News Digest"
-          to: your@email.com
-          from: "AI Bot <your@email.com>"
+          to: thedataguy239@gmail.com
+          from: "AI Bot <thedataguy239@gmail.com>"
           body: |
             Here's your AI news digest for today!
             See attached.
